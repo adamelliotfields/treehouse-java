@@ -1,6 +1,6 @@
 # Java Basics
 
-### About this Course
+### About This Course
 In this course you will gain all the knowledge you will need to build an interactive command line
 program in Java. No prior programming experience is required. You will create an interactive game
 that prompts users for different parts of a sentence and then generates a story using those words.
