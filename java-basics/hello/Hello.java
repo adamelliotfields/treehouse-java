@@ -1,3 +1,5 @@
+package hello;
+
 import java.io.Console;
 
 public class Hello {

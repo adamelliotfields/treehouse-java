@@ -1,3 +1,5 @@
+package madlibs;
+
 import java.io.Console;
 
 public class MadLibs {
