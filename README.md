@@ -6,6 +6,11 @@
  - **[Java Basics](https://github.com/adamelliotfields/treehouse-java/tree/master/java-basics)**
  - **[Java Objects](https://github.com/adamelliotfields/treehouse-java/tree/master/java-objects)**
  - **[Java Strings](https://github.com/adamelliotfields/treehouse-java/tree/master/java-strings)**
+ - **[Java Data Structures](https://github.com/adamelliotfields/treehouse-java/tree/master/java-data-structures)**
+ - **[Java Regular Expressions](https://github.com/adamelliotfields/treehouse-java/tree/master/java-regular-expressions)**
+ - **[Java Development Environment](https://github.com/adamelliotfields/treehouse-java/tree/master/java-development-environment)**
+ - **[Java Lambdas](https://github.com/adamelliotfields/treehouse-java/tree/master/java-lambdas)**
+ - **[JavaFX](https://github.com/adamelliotfields/treehouse-java/tree/master/java-fx)**
 
 ### Other Topics
 Click [here](https://github.com/adamelliotfields/treehouse/blob/master/README.md) for a list of all my Treehouse courses.
