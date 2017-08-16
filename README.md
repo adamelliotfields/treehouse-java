@@ -5,6 +5,7 @@
 ### Courses
  - **[Java Basics](https://github.com/adamelliotfields/treehouse-java/tree/master/java-basics)**
  - **[Java Objects](https://github.com/adamelliotfields/treehouse-java/tree/master/java-objects)**
+ - **[Java Strings](https://github.com/adamelliotfields/treehouse-java/tree/master/java-strings)**
 
 ### Other Topics
 Click [here](https://github.com/adamelliotfields/treehouse/blob/master/README.md) for a list of all my Treehouse courses.
