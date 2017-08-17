@@ -1,13 +1,19 @@
 /*If Main was in the module root and Tweet was in the package,
  * you would have to import it:
  *
- * import tweets.TreehouseTweet;
+ * import tweets.Tweet;
  */
 
 package tweets;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Main {
   public static void main(String[] args) {
@@ -25,12 +31,6 @@ public class Main {
         new Date(1502856000000L)
     );
 
-    // System.out.println("");
-    // System.out.println(tweet1);
-    // System.out.println("--------------------");
-    // System.out.println("");
-    // System.out.println(tweet2);
-
     // Create an array of tweets in reverse order, then sort
     Tweet[] tweets = {tweet2, tweet1};
     Arrays.sort(tweets);
@@ -45,8 +45,47 @@ public class Main {
       System.out.println(tweet);
     }
 
-    for (int i = 0; i < loadedTweets.length; i++) {
-      System.out.println("Tweet " + (i + 1) + " hashtags: " + loadedTweets[i].getHashTags());
+    Set<String> allHashTags = new HashSet<>();
+    Set<String> allMentions = new HashSet<>();
+
+    for (Tweet tweet : tweets) {
+      allHashTags.addAll(tweet.getHashTags());
+      allMentions.addAll(tweet.getMentions());
     }
+
+    System.out.printf("Hashtags: %s %n", allHashTags);
+    System.out.printf("Mentions: %s %n", allMentions);
+
+    Map<String, Integer> hashTagCounts = new HashMap<>();
+
+    for (Tweet tweet : tweets) {
+      for (String hashTag : tweet.getHashTags()) {
+        Integer count = hashTagCounts.get(hashTag);
+
+        if (count  == null) {
+          count = 0;
+        }
+
+        count++;
+        hashTagCounts.put(hashTag, count);
+      }
+    }
+
+    System.out.printf("Hashtag Counts: %s %n", hashTagCounts);
+
+    Map<String, List<Tweet>> tweetsByAuthor = new HashMap<>();
+
+    for (Tweet tweet : tweets) {
+      List<Tweet> authoredTweets = tweetsByAuthor.get(tweet.getAuthor());
+
+      if (authoredTweets == null) {
+        authoredTweets = new ArrayList<>();
+        tweetsByAuthor.put(tweet.getAuthor(), authoredTweets);
+      }
+
+      authoredTweets.add(tweet);
+    }
+
+    System.out.printf("Tweets by author: %s %n", tweetsByAuthor);
   }
 }
