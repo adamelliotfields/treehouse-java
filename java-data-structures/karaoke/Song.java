@@ -1,9 +1,9 @@
 package karaoke;
 
 public class Song {
-  private String artist;
-  private String title;
-  private String url;
+  protected String artist;
+  protected String title;
+  protected String url;
 
   public Song(String artist, String title, String url) {
     this.artist = artist;

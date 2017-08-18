@@ -2,18 +2,16 @@ package karaoke;
 
 public class Main {
   public static void main(String[] args) {
-    Song song = new Song(
-        "Michael Jackson",
-        "Beat It",
-        "https://www.youtube.com/watch?v=SaEC9i9QOvk"
-    );
-
     SongBook songBook = new SongBook();
 
-    System.out.printf("Adding %s%n", song);
+    songBook.importFrom("songs.txt");
 
-    songBook.addSong(song);
+    KaraokeMachine machine = new KaraokeMachine(songBook);
 
-    System.out.printf("There are %d songs.%n", songBook.getSongCount());
+    machine.run();
+
+    System.out.println("Saving song book...");
+
+    songBook.exportTo("songs.txt");
   }
 }
