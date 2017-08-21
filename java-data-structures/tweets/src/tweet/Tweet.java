@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import lombok.Getter;
 
 // Implement the Comparable interface which will allow Tweets to be sortable
 // Normally, Arrays.sort requires a comparable to sort
@@ -18,6 +19,7 @@ public class Tweet implements Comparable<Tweet>, Serializable {
   // If this class changes, any file with this UID will still be able to be loaded
   private static final long serialVersionUID = -91628531270740319L;
 
+  @Getter
   private String author;
   private String description;
   private Date date;
@@ -26,18 +28,6 @@ public class Tweet implements Comparable<Tweet>, Serializable {
     this.author = author;
     this.description = description;
     this.date = date;
-  }
-
-  public String getAuthor() {
-    return author;
-  }
-
-  public String getDescription() {
-    return description;
-  }
-
-  public Date getDate() {
-    return date;
   }
 
   public List<String> getWords() {

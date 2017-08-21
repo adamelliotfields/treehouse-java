@@ -37,9 +37,7 @@ public class KaraokeMachine {
         songQueue.size()
     );
 
-    for (Map.Entry<String, String> option : menu.entrySet()) {
-      System.out.printf("%s - %s %n", option.getKey(), option.getValue());
-    }
+    menu.forEach((key, value) -> System.out.println(key + " - " + value));
 
     System.out.print("What do you want to do:  ");
 
@@ -80,7 +78,7 @@ public class KaraokeMachine {
 
             songQueue.add(songRequest);
 
-            System.out.printf("You chose: %s %n", artistSong);
+            System.out.printf("%nYou chose: %s %n", artistSong);
             break;
           case "play":
             playNext();
@@ -131,9 +129,7 @@ public class KaraokeMachine {
     List<Song> songs = songBook.getSongsForArtist(artist);
     List<String> songTitles = new ArrayList<>();
 
-    for (Song song : songs) {
-      songTitles.add(song.getTitle());
-    }
+    songs.forEach(item -> songTitles.add(item.getTitle()));
 
     System.out.printf("Available songs for %s: %n", artist);
 
@@ -146,7 +142,7 @@ public class KaraokeMachine {
     int counter = 1;
 
     for (String option : options) {
-      System.out.printf("%d. %s %n", counter, option);
+      System.out.println(counter + ". " + option);
       counter++;
     }
 
@@ -167,7 +163,7 @@ public class KaraokeMachine {
       Song song = songRequest.getSong();
 
       System.out.printf(
-          "%n%n Ready %s? Open %s to hear %s by %s %n%n",
+          "%nReady %s? Open %s to hear %s by %s %n%n",
           songRequest.getSingerName(),
           song.getUrl(),
           song.getTitle(),
