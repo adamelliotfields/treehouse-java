@@ -1,7 +1,13 @@
 package book;
 
+import lombok.Getter;
+import lombok.ToString;
+
+@ToString
 public class Book {
+  @Getter
   private String title;
+
   private String author;
   private int publicationDate;
 
@@ -11,29 +17,16 @@ public class Book {
     this.publicationDate = publicationDate;
   }
 
-  public String getTitle() {
-    return title;
-  }
-
-  public String getAuthor() {
-    return author;
-  }
-
-  public int getPublicationDate() {
-    return publicationDate;
-  }
-
-  // Override the native toString method
-  @Override
-  public String toString() {
-    String string = "Book { title="
-        + title
-        + ", author="
-        + author
-        + ", publicationDate="
-        + publicationDate
-        + " }";
-
-    return string;
-  }
+  // @Override
+  // public String toString() {
+  //   String string = "Book { title="
+  //       + title
+  //       + ", author="
+  //       + author
+  //       + ", publicationDate="
+  //       + publicationDate
+  //       + " }";
+  //
+  //   return string;
+  // }
 }
