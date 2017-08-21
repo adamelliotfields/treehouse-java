@@ -1,8 +1,12 @@
+import lombok.Getter;
+
 /**
  * The Hangman game logic.
  */
 public class Game {
+  @Getter
   private String answer;
+
   private String hits;
   private String misses;
 
@@ -49,14 +53,6 @@ public class Game {
     }
 
     return letter;
-  }
-
-  /**
-   * Returns the correct answer string.
-   * @return String
-   */
-  public String getAnswer() {
-    return answer;
   }
 
   /**

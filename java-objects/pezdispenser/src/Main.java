@@ -20,7 +20,7 @@ public class Main {
 
     System.out.printf(
         "Successfully made a %s PEZ dispenser!%n",
-        dispenser.getCharacterName()
+        dispenser.getName()
     );
 
     if (dispenser.isEmpty()) {

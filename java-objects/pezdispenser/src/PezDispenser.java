@@ -1,6 +1,9 @@
+import lombok.Getter;
+
 public class PezDispenser {
   // The private keyword makes the variable accessible only within its own class
   // The final keyword makes the variable immutable once assigned
+  @Getter
   private final String name;
   // The static keyword makes the variable accessible at the class level
   public static final int MAX_PEZ = 12;
@@ -9,11 +12,6 @@ public class PezDispenser {
   public PezDispenser(String name) {
     this.name = name;
     pezCount = 0;
-  }
-
-  // The getter method gives access to the private variable
-  public String getCharacterName() {
-    return name;
   }
 
   public boolean dispense() {
