@@ -1,7 +1,9 @@
+package io.github.adamelliotfields;
+
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Systemizer {
+public class Main {
   public static void main(String[] args) {
     System.out.println("This is the classpath: " + System.getProperty("java.class.path"));
 
