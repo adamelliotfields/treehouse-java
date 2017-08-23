@@ -1,8 +1,10 @@
+package io.github.adamelliotfields;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URI;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,32 +23,30 @@ public class Prompter {
 
   private void loadCensoredWords() {
     censoredWords = new HashSet<>();
-    Path file = Paths.get("resources", "censored_words.txt");
-    List<String> words = null;
 
     try {
-      words = Files.readAllLines(file);
-    } catch (IOException error) {
+      // Use the URI class to generate a file:/ URI
+      // This makes an operating system agnostic path string
+      URI uri = this.getClass().getResource("/censored_words.txt").toURI();
+      List<String> words = Files.readAllLines(Paths.get(uri));
+      censoredWords.addAll(words);
+    } catch (Exception error) {
       System.out.println("Error: Couldn't load censored words...");
       error.printStackTrace();
     }
-
-    censoredWords.addAll(words);
   }
 
   public void run(Template template) {
-    List<String> words = null;
-
     try {
-      words = promptForWords(template);
+      List<String> words = promptForWords(template);
+      // Print out the results that were gathered here by rendering the template
+      String results = template.render(words);
+      System.out.printf("Your story:%n%n%s", results);
     } catch (IOException error) {
       System.out.println("There was a problem prompting for words");
       error.printStackTrace();
       System.exit(0);
     }
-    // Print out the results that were gathered here by rendering the template
-    String results = template.render(words);
-    System.out.printf("Your story:%n%n%s", results);
   }
 
   /**

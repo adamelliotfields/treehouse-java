@@ -1,3 +1,5 @@
+package io.github.adamelliotfields;
+
 public class Main {
   public static void main(String[] args) {
     // Instantiate a new Prompter object and prompt for the story template
