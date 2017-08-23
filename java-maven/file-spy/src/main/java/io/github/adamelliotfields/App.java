@@ -2,6 +2,7 @@ package io.github.adamelliotfields;
 
 import static java.nio.file.StandardWatchEventKinds.ENTRY_CREATE;
 
+import java.io.File;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,7 +12,7 @@ import org.apache.tika.Tika;
 
 public class App {
   private static final String FILE_TYPE = "text/csv";
-  private static final String DIR_TO_WATCH = "C:\\Users\\Adam\\Downloads";
+  private static final String DIR_TO_WATCH = System.getProperty("user.home") + File.separator + "Documents";
 
   public static void main(String[] args) throws Exception {
     Path dir = Paths.get(DIR_TO_WATCH);
