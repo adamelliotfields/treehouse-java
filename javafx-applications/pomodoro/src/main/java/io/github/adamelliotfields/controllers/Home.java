@@ -1,4 +1,4 @@
-package controllers;
+package io.github.adamelliotfields.controllers;
 
 import java.util.Arrays;
 import javafx.animation.Animation;
@@ -12,8 +12,8 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
-import model.Attempt;
-import model.AttemptKind;
+import io.github.adamelliotfields.model.Attempt;
+import io.github.adamelliotfields.model.AttemptKind;
 
 public class Home {
   @FXML

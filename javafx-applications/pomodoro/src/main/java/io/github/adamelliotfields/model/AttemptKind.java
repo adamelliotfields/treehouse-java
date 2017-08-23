@@ -1,4 +1,4 @@
-package model;
+package io.github.adamelliotfields.model;
 
 import lombok.Getter;
 

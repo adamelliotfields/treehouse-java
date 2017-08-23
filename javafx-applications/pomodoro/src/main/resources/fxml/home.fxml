@@ -10,7 +10,7 @@
   stylesheets="/css/main.css"
   xmlns="http://javafx.com/javafx/8"
   xmlns:fx="http://javafx.com/fxml"
-  fx:controller="controllers.Home"
+  fx:controller="io.github.adamelliotfields.controllers.Home"
   fx:id="container"
 >
   <Label fx:id="title" text="Pomodoro"/>
