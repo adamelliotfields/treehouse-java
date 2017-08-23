@@ -10,7 +10,10 @@
  - **[Java Regular Expressions](https://github.com/adamelliotfields/treehouse-java/tree/master/java-regular-expressions)**
  - **[Java Development Environment](https://github.com/adamelliotfields/treehouse-java/tree/master/java-development-environment)**
  - **[Java Lambdas](https://github.com/adamelliotfields/treehouse-java/tree/master/java-lambdas)**
- - **[JavaFX](https://github.com/adamelliotfields/treehouse-java/tree/master/java-fx)**
+ - **[Java Unit Testing](https://github.com/adamelliotfields/treehouse-java/tree/master/java-unit-testing)**
+ - **[Java Maven](https://github.com/adamelliotfields/treehouse-java/tree/master/java-maven)**
+ - **[Java Gradle](https://github.com/adamelliotfields/treehouse-java/tree/master/java-gradle)**
+ - **[JavaFX Applications](https://github.com/adamelliotfields/treehouse-java/tree/master/javafx-applications)**
 
 ### Other Topics
 Click [here](https://github.com/adamelliotfields/treehouse/blob/master/README.md) for a list of all my Treehouse courses.
