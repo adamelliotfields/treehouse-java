@@ -1,4 +1,4 @@
-package book;
+package io.github.adamelliotfields;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package book;
+package io.github.adamelliotfields;
 
 import lombok.Getter;
 import lombok.ToString;

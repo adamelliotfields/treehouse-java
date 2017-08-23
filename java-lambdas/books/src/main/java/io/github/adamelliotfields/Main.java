@@ -1,8 +1,7 @@
+package io.github.adamelliotfields;
+
 import java.util.Comparator;
 import java.util.List;
-
-import book.Book;
-import book.BookList;
 
 public class Main {
   public static void main(String[] args) {
