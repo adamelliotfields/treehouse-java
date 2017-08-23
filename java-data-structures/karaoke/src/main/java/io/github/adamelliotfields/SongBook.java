@@ -1,16 +1,18 @@
-package song;
+package io.github.adamelliotfields;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.stream.Stream;
 
 public class SongBook {
   private List<Song> songs;
@@ -28,38 +30,35 @@ public class SongBook {
   }
 
   public void exportTo(String fileName) {
+    String dirName = System.getProperty("user.dir");
+    String pathName = dirName + File.separator + fileName;
+
     try (
-      FileOutputStream fileOutputStream = new FileOutputStream(fileName);
-      PrintWriter printWriter = new PrintWriter(fileOutputStream);
+      FileOutputStream fileOutputStream = new FileOutputStream(pathName);
+      PrintWriter printWriter = new PrintWriter(fileOutputStream)
     ) {
-      for (Song song : songs) {
-        printWriter.printf(
-            "%s|%s|%s%n",
-            song.getArtist(),
-            song.getTitle(),
-            song.getUrl()
-        );
-      }
+      songs.forEach(song -> {
+        String karaokeSong = song.getArtist() + "|" + song.getTitle() + "|" + song.getUrl();
+        printWriter.println(karaokeSong);
+      });
     } catch (IOException error) {
-      System.out.printf("Error writing to %s %n", fileName);
-      error.printStackTrace();
+      System.err.println("Error: Unable to write to " + fileName);
     }
   }
 
   public void importFrom(String fileName) {
-    try (
-      FileInputStream fileInputStream = new FileInputStream(fileName);
-      BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
-    ) {
-      String line;
+    String dirName = System.getProperty("user.dir");
+    String pathName = dirName + File.separator + fileName;
 
-      while ((line = bufferedReader.readLine()) != null) {
+    Path path = Paths.get(pathName);
+
+    try (Stream<String> stream = Files.lines(path)) {
+      stream.forEach(line -> {
         String[] args = line.split("\\|");
         addSong(new Song(args[0], args[1], args[2]));
-      }
+      });
     } catch (IOException error) {
-      System.out.printf("Problems loading %s %n", fileName);
-      error.printStackTrace();
+      System.err.println("Error: Could not read file " + fileName);
     }
   }
 

@@ -1,16 +1,19 @@
-package song;
-
-import lombok.Getter;
+package io.github.adamelliotfields;
 
 public class SongRequest {
-  @Getter
   private String singerName;
-
-  @Getter
   private Song song;
 
   public SongRequest(String singerName, Song song) {
     this.singerName = singerName;
     this.song = song;
+  }
+
+  public String getSingerName() {
+    return singerName;
+  }
+
+  public Song getSong() {
+    return song;
   }
 }

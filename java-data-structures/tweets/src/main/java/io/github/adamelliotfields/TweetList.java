@@ -1,5 +1,6 @@
-package tweet;
+package io.github.adamelliotfields;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,10 +9,13 @@ import java.io.ObjectOutputStream;
 
 public class TweetList {
   public static void save(Tweet[] tweets) {
+    String dirName = System.getProperty("user.dir");
+    String pathName = dirName + File.separator + "tweets.ser";
+
     // This is a special type of try block known as "try with resources"
     // This will automatically close any streams that were opened
     try (
-      FileOutputStream fileOutputStream = new FileOutputStream("tweets.ser");
+      FileOutputStream fileOutputStream = new FileOutputStream(pathName);
       ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
     ) {
       objectOutputStream.writeObject(tweets);
@@ -24,8 +28,11 @@ public class TweetList {
   public static Tweet[] load() {
     Tweet[] tweets = new Tweet[0];
 
+    String dirName = System.getProperty("user.dir");
+    String pathName = dirName + File.separator + "tweets.ser";
+
     try (
-      FileInputStream fileInputStream = new FileInputStream("tweets.ser");
+      FileInputStream fileInputStream = new FileInputStream(pathName);
       ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
     ) {
       tweets = (Tweet[]) objectInputStream.readObject();

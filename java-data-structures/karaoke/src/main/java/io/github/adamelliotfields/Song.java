@@ -1,4 +1,4 @@
-package song;
+package io.github.adamelliotfields;
 
 import lombok.Getter;
 

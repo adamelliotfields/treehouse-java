@@ -1,4 +1,4 @@
-package tweet;
+package io.github.adamelliotfields;
 
 import java.io.Serializable;
 import java.text.DateFormat;

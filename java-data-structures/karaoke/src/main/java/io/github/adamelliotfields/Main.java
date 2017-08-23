@@ -1,10 +1,12 @@
-import song.SongBook;
+package io.github.adamelliotfields;
 
 public class Main {
   public static void main(String[] args) {
     SongBook songBook = new SongBook();
 
-    songBook.importFrom("songs.txt");
+    String fileName = "songs.txt";
+
+    songBook.importFrom(fileName);
 
     KaraokeMachine machine = new KaraokeMachine(songBook);
 
@@ -12,6 +14,6 @@ public class Main {
 
     System.out.println("Saving song book...");
 
-    songBook.exportTo("songs.txt");
+    songBook.exportTo(fileName);
   }
 }

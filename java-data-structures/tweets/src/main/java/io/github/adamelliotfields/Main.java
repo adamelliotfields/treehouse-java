@@ -1,8 +1,4 @@
-/*If Main was in the module root and Tweet was in the package,
- * you would have to import it:
- *
- * import tweets.Tweet;
- */
+package io.github.adamelliotfields;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,8 +8,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import tweet.Tweet;
-import tweet.TweetList;
 
 public class Main {
   public static void main(String[] args) {
