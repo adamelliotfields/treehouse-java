@@ -1,6 +1,8 @@
+package io.github.adamelliotfields;
+
 import java.util.Scanner;
 
-class ZipCode {
+class Main {
   public static void main(String[] args) {
     Scanner scanner = new Scanner(System.in);
 

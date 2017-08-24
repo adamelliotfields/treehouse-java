@@ -1,7 +1,9 @@
+package io.github.adamelliotfields;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Shush {
+public class Main {
   public static void main(String[] args) {
     String script = "Procrastination is surely not the destination, should we talk about shiny things?";
 
