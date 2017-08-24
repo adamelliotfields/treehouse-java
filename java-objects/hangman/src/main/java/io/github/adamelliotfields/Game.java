@@ -1,3 +1,5 @@
+package io.github.adamelliotfields;
+
 import lombok.Getter;
 
 /**

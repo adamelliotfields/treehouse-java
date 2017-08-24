@@ -1,3 +1,5 @@
+package io.github.adamelliotfields;
+
 /**
  * The main hangman game app.
  */
