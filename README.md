@@ -8,9 +8,10 @@
  - **[Java Data Structures](https://github.com/adamelliotfields/treehouse-java/tree/master/java-data-structures)**
  - **[Java Regular Expressions](https://github.com/adamelliotfields/treehouse-java/tree/master/java-regular-expressions)**
  - **[Java Development Environment](https://github.com/adamelliotfields/treehouse-java/tree/master/java-development-environment)**
- - **[Java Lambdas](https://github.com/adamelliotfields/treehouse-java/tree/master/java-lambdas)**
  - **[Java Annotations](https://github.com/adamelliotfields/treehouse-java/tree/master/java-annotations)**
+ - **[Java Lambdas](https://github.com/adamelliotfields/treehouse-java/tree/master/java-lambdas)**
  - **[Java Optionals](https://github.com/adamelliotfields/treehouse-java/tree/master/java-optionals)**
+ - **[Java Functional Programming](https://github.com/adamelliotfields/treehouse-java/tree/master/java-functional-programming)**
  - **[Java Debugging](https://github.com/adamelliotfields/treehouse-java/tree/master/java-debugging)**
  - **[Java Unit Testing](https://github.com/adamelliotfields/treehouse-java/tree/master/java-unit-testing)**
  - **[Java Maven](https://github.com/adamelliotfields/treehouse-java/tree/master/java-maven)**
