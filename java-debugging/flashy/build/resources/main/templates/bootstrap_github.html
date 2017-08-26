@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>Flashy</title>
+  <meta name="description" content="A Flash Card game about Java terms" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto|Suez+One" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/global.css" />
+</head>
+<body class="index">
+
+  <div class="bounds">
+    <div class="card">
+      <h1 class="logo">GitHub Bootstrap</h1>
+      <div th:unless="${options.githubOauth}" style="text-align: left">
+        <p>In order to copy issues across you need to create a <a href="https://github.com/settings/tokens" target="_blank">GitHub personal access token</a>.</p>
+
+        <p>On that page, choose "Generate new token".
+          <ol>
+            <li>Name it something like "Treehouse Issue Copier"</li>
+            <li>Check the repo scope.  (The first one).</li>
+            <li>Click Generate token.</li>
+            <li>Copy the token to your clipboard</li>
+            <li>Paste it in the box below:</li>
+          </ol>
+        </p>
+
+        <form action="#" th:action="@{/bootstrap/github}" th:object="${options}" method="post">
+          <div>
+            <input type="text" placeholder="Enter your GitHub oauth token here" th:field="*{githubOauth}" size="50"/>
+          </div>
+          <input type="submit" value="Submit" class="button button-primary"/>
+        </form>
+      </div>
+
+      <div th:if="${options.githubOauth}">
+        <div th:unless="${options.shouldFork}">
+          <p>Are you ready to fork the <code th:text="${repoName}"></code> and its issues to your <code th:text="${gitHubUserName}"></code> GitHub Account</p>
+          <form action="#" th:action="@{/bootstrap/github}" th:object="${options}" method="post">
+            <input type="hidden" th:field="*{githubOauth}" />
+            <input type="hidden" id="shouldFork" name="shouldFork" th:value="true" />
+            <input type="submit" value="Fork it!" class="button button-primary"/>
+          </form>
+        </div>
+
+        <div th:if="${options.shouldFork}" style="text-align: left">
+          <h2>Success!</h2>
+          <p>The following actions were performed:
+            <ul>
+              <li th:each="action : ${actions}" th:text="${action}"></li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
