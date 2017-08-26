@@ -1,7 +1,6 @@
 ![Treehouse](treehouse.png)
 
 > A collection of my completed Java projects at [Treehouse](https://teamtreehouse.com).
-
 ### Courses
  - **[Java Basics](https://github.com/adamelliotfields/treehouse-java/tree/master/java-basics)**
  - **[Java Objects](https://github.com/adamelliotfields/treehouse-java/tree/master/java-objects)**
@@ -12,6 +11,7 @@
  - **[Java Lambdas](https://github.com/adamelliotfields/treehouse-java/tree/master/java-lambdas)**
  - **[Java Annotations](https://github.com/adamelliotfields/treehouse-java/tree/master/java-annotations)**
  - **[Java Optionals](https://github.com/adamelliotfields/treehouse-java/tree/master/java-optionals)**
+ - **[Java Debugging](https://github.com/adamelliotfields/treehouse-java/tree/master/java-debugging)**
  - **[Java Unit Testing](https://github.com/adamelliotfields/treehouse-java/tree/master/java-unit-testing)**
  - **[Java Maven](https://github.com/adamelliotfields/treehouse-java/tree/master/java-maven)**
  - **[Java Gradle](https://github.com/adamelliotfields/treehouse-java/tree/master/java-gradle)**
