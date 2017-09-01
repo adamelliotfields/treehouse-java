@@ -1,47 +1,67 @@
 package io.github.adamelliotfields;
 
-import com.mongodb.MongoClient;
-import io.github.adamelliotfields.entities.Course;
-import io.github.adamelliotfields.entities.Review;
+import static spark.Spark.after;
+import static spark.Spark.get;
+import static spark.Spark.post;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.adamelliotfields.dao.CourseDAO;
+import io.github.adamelliotfields.dao.CourseDAOImpl;
+import io.github.adamelliotfields.dao.ReviewDAO;
+import io.github.adamelliotfields.dao.ReviewDAOImpl;
+import io.github.adamelliotfields.entity.Course;
+import io.github.adamelliotfields.entity.Review;
+import io.github.adamelliotfields.service.MorphiaService;
+import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
-import org.mongodb.morphia.Morphia;
-import org.mongodb.morphia.query.Query;
-import org.mongodb.morphia.query.UpdateOperations;
-import org.mongodb.morphia.query.UpdateResults;
 
 public class App {
   public static void main(String[] args) {
-    final Morphia morphia = new Morphia();
+    MorphiaService morphiaService = MorphiaService.getInstance();
+    ObjectMapper objectMapper = new ObjectMapper();
 
-    morphia.mapPackage("io.github.adamelliotfields.entities");
-
-    final Datastore datastore = morphia.createDatastore(new MongoClient(), "treehouse-course-reviews");
+    Datastore datastore = morphiaService.getDatastore();
     datastore.getDB().dropDatabase();
 
-    final Course learnReact = new Course("Learn React", "teamtreehouse.com/learn-react");
-    datastore.save(learnReact);
+    CourseDAO<Course, ObjectId> courseDAO = new CourseDAOImpl<>(Course.class, datastore);
+    ReviewDAO<Review, ObjectId> reviewDAO = new ReviewDAOImpl<>(Review.class, datastore);
 
-    final Review learnReactReview = new Review(learnReact.getId(), 5, "Loved It!");
-    datastore.save(learnReactReview);
+    // GET all courses
+    get("/courses", "application/json", (req, res) -> {
+      return courseDAO.getAllCoursesAsList();
+    }, objectMapper::writeValueAsString);
 
-    learnReact.reviews.add(learnReactReview.getId());
-    datastore.save(learnReact);
+    // POST a new course
+    post("/courses", "application/json", (req, res) -> {
+      Course course = objectMapper.readValue(req.body(), Course.class);
 
-    final Query<Course> query = datastore.find(Course.class)
-                             .filter("id", learnReact.getId());
+      courseDAO.save(course);
 
-    final UpdateOperations<Course> update = datastore.createUpdateOperations(Course.class)
-                                                     .set("name", "Advanced React");
+      res.status(201);
+      res.redirect("/courses/" + courseDAO.getIdAsString(course));
 
-    final UpdateResults updateResults = datastore.update(query, update);
+      return null;
+    });
 
-    System.out.println(updateResults);
+    // GET a course by ID
+    get("/courses/:id", "application/json", (req, res) -> {
+      ObjectId id = new ObjectId(req.params("id"));
 
-    System.out.println(
-        datastore.find(Course.class)
-                 .filter("id", learnReact.getId())
-                 .get()
-                 .toString()
-    );
+      return courseDAO.get(id);
+    }, objectMapper::writeValueAsString);
+
+    // POST a new review
+    post("/courses/:id/reviews", "application/json", (req, res) -> {
+      String id = req.params("id");
+      Review review = objectMapper.readValue(req.body(), Review.class);
+
+      reviewDAO.addReview(review);
+
+      res.redirect("/courses/" + id);
+
+      return null;
+    });
+
+    after((req, res) -> res.type("application/json"));
   }
 }
