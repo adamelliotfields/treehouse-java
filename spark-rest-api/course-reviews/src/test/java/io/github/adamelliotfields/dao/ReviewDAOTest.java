@@ -1,52 +1,36 @@
 package io.github.adamelliotfields.dao;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import com.github.fakemongo.Fongo;
 import io.github.adamelliotfields.entity.Course;
 import io.github.adamelliotfields.entity.Review;
 import io.github.adamelliotfields.service.FongoService;
 import org.bson.types.ObjectId;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.mongodb.morphia.Datastore;
+import org.mongodb.morphia.Key;
 
 public class ReviewDAOTest {
-  private Fongo fongo;
-  private CourseDAO<Course, ObjectId> courseDAO;
-  private ReviewDAO<Review, ObjectId> reviewDAO;
+  private FongoService fongoService = FongoService.getInstance();
+  private Datastore datastore = fongoService.getDatastore();
 
-  @Before
-  public void setUp() throws Exception {
-    FongoService fongoService = FongoService.getInstance();
-    Datastore datastore = fongoService.getDatastore();
-
-    fongo = fongoService.getFongo();
-    courseDAO = new CourseDAOImpl<>(Course.class, datastore);
-    reviewDAO = new ReviewDAOImpl<>(Review.class, datastore);
-  }
-
-  @After
-  public void tearDown() throws Exception {
-    fongo.dropDatabase("test");
-  }
+  private CourseDAO<Course, ObjectId> courseDAO = new CourseDAOImpl<>(Course.class, datastore);
+  private ReviewDAO<Review, ObjectId> reviewDAO = new ReviewDAOImpl<>(Review.class, datastore);
 
   @Test
   public void addReview() throws Exception {
     Course testCourse = new Course("Test Course", "http://test.com");
-    courseDAO.save(testCourse);
+    Key<Course> testCourseKey = courseDAO.save(testCourse);
+    String testCourseId = testCourseKey.getId().toString();
 
-    Review testCourseReview = new Review(courseDAO.getIdAsString(testCourse), 5, "Test Comment");
-    reviewDAO.addReview(testCourseReview);
+    Review testReview = new Review(courseDAO.getIdAsString(testCourse), 5, "Test Comment");
+    Key<Review> testReviewKey = reviewDAO.addReview(testReview);
+    String testReviewId = testReviewKey.getId().toString();
 
-    String expected = testCourseReview.getId().toHexString();
+    String queryResult = courseDAO.get(new ObjectId(testCourseId))
+                                  .getReviews()
+                                  .get(0);
 
-    String actual = courseDAO
-                      .get(testCourse.getId())
-                      .getReviews()
-                      .get(0);
-
-    assertEquals(expected, actual);
+    assertThat(testReviewId).isEqualToIgnoringCase(queryResult);
   }
 }

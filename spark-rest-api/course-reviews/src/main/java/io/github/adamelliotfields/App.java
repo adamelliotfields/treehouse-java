@@ -15,6 +15,10 @@ import io.github.adamelliotfields.service.MorphiaService;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.Datastore;
 
+// TODO: Add API error handling
+// TODO: Add Database error handling
+// TODO: Add PUT routes for course and review
+// TODO: Add route unit tests
 public class App {
   public static void main(String[] args) {
     MorphiaService morphiaService = MorphiaService.getInstance();
@@ -61,6 +65,38 @@ public class App {
 
       return null;
     });
+
+    // GET all reviews by Course ID
+    get("/courses/:id/reviews", (req, res) -> {
+      String id = req.params("id");
+
+      return courseDAO.get(new ObjectId("id")).getReviews();
+    }, objectMapper::writeValueAsString);
+
+    // GET a review by ID
+    get("/courses/:courseId/reviews/:reviewId", (req, res) -> {
+      ObjectId id = new ObjectId(req.params("reviewId"));
+
+      return reviewDAO.get(id);
+    });
+
+    // API Error
+    // exception(ApiError.class, (err, req, res) -> {
+    //   ApiError error = (ApiError) err;
+    //   Map<String, Object> model = new HashMap<>();
+    //
+    //   model.put("statusCode", error.getStatusCode());
+    //   model.put("error", error.getError());
+    //
+    //   res.type("application/json");
+    //   res.status(err.getStatusCode());
+    //
+    //   try {
+    //     res.body(objectMapper.writeValueAsString(model));
+    //   } catch (JsonProcessingException jpe) {
+    //     jpe.printStackTrace();
+    //   }
+    // });
 
     after((req, res) -> res.type("application/json"));
   }

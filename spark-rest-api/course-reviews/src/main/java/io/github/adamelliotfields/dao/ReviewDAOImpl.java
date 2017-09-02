@@ -18,8 +18,8 @@ public class ReviewDAOImpl<T, K> extends BasicDAO<T, K> implements ReviewDAO<T, 
     this.datastore = datastore;
   }
 
-  public void addReview(Review review) {
-    Key key = datastore.save(review);
+  public Key<Review> addReview(Review review) {
+    Key<Review> key = datastore.save(review);
     String reviewId = key.getId().toString();
     ObjectId courseId = new ObjectId(review.getCourseId());
 
@@ -32,5 +32,7 @@ public class ReviewDAOImpl<T, K> extends BasicDAO<T, K> implements ReviewDAO<T, 
                                         .push("reviews", reviewId);
 
     datastore.update(query, update);
+
+    return key;
   }
 }
