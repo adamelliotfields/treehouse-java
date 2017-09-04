@@ -18,6 +18,8 @@
  - **[Java Gradle](https://github.com/adamelliotfields/treehouse-java/tree/master/java-gradle)**
  - **[JavaFX Applications](https://github.com/adamelliotfields/treehouse-java/tree/master/javafx-applications)**
  - **[Spark Basics](https://github.com/adamelliotfields/treehouse-java/tree/master/spark-basics)**
+ - **[Spark Rest API](https://github.com/adamelliotfields/treehouse-java/tree/master/spark-rest-api)**
+ - **[Spring Basics](https://github.com/adamelliotfields/treehouse-java/tree/master/spring-basics)**
 
 ### Other Topics
 Click [here](https://github.com/adamelliotfields/treehouse/blob/master/README.md) for a list of all my Treehouse courses.
