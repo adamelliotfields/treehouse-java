@@ -6,27 +6,40 @@
  * user guide available at https://docs.gradle.org/4.1/userguide/tutorial_java_projects.html
  */
 
-plugins {
-  // Apply the java plugin to add support for Java
-  id 'java'
-  // Apply the application plugin to add support for building an application
-  id 'application'
-  id 'org.springframework.boot' version '1.5.6.RELEASE'
+buildscript {
+  ext {
+    springBootVersion = '1.5.7.RELEASE'
+  }
+  repositories {
+    maven {
+      url 'https://plugins.gradle.org/m2/'
+    }
+  }
+  dependencies {
+    classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+  }
 }
 
-// In this section you declare where to find the dependencies of your project
+plugins {
+  id 'java'
+  id 'application'
+}
+
+apply plugin: 'org.springframework.boot'
+
 repositories {
-  // Use jcenter for resolving your dependencies.
-  // You can declare any Maven/Ivy/file repository here.
   jcenter()
 }
 
 dependencies {
-//  compile 'org.springframework.boot:spring-boot-starter-thymeleaf:1.5.6.RELEASE'
-  compile 'org.springframework.boot:spring-boot-starter-freemarker:1.5.6.RELEASE'
-  compile 'org.springframework.boot:spring-boot-starter-data-mongodb:1.5.6.RELEASE'
+  compile "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}"
+  compile "org.springframework.boot:spring-boot-starter-data-mongodb:${springBootVersion}"
+  compile "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
   compile 'org.projectlombok:lombok:1.16.18'
 }
 
-// Define the main class for the application
 mainClassName = 'io.github.adamelliotfields.App'
+group = 'io.github.adamelliotfields'
+version = '1.0.0'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
