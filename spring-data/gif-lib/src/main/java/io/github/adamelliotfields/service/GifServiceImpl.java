@@ -1,7 +1,7 @@
 package io.github.adamelliotfields.service;
 
-import io.github.adamelliotfields.document.Category;
-import io.github.adamelliotfields.document.Gif;
+import io.github.adamelliotfields.entity.Category;
+import io.github.adamelliotfields.entity.Gif;
 import io.github.adamelliotfields.form.GifForm;
 import io.github.adamelliotfields.repository.CategoryRepository;
 import io.github.adamelliotfields.repository.GifRepository;

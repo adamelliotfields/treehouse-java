@@ -1,6 +1,6 @@
 package io.github.adamelliotfields.service;
 
-import io.github.adamelliotfields.document.Category;
+import io.github.adamelliotfields.entity.Category;
 import io.github.adamelliotfields.repository.CategoryRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

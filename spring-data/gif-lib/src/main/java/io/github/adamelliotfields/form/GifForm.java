@@ -1,6 +1,6 @@
 package io.github.adamelliotfields.form;
 
-import io.github.adamelliotfields.document.Category;
+import io.github.adamelliotfields.entity.Category;
 import javax.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;

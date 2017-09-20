@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+// TODO: Implement Tika file type validation
 @SpringBootApplication
 @EnableMongoRepositories
 public class App {

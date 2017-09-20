@@ -1,6 +1,6 @@
 package io.github.adamelliotfields.service;
 
-import io.github.adamelliotfields.document.Category;
+import io.github.adamelliotfields.entity.Category;
 import java.util.List;
 
 public interface CategoryService {

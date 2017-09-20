@@ -1,4 +1,4 @@
-package io.github.adamelliotfields.document;
+package io.github.adamelliotfields.entity;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;

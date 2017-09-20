@@ -1,4 +1,4 @@
-package io.github.adamelliotfields.document;
+package io.github.adamelliotfields.entity;
 
 import java.util.ArrayList;
 import java.util.List;

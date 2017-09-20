@@ -1,6 +1,6 @@
 package io.github.adamelliotfields.service;
 
-import io.github.adamelliotfields.document.Gif;
+import io.github.adamelliotfields.entity.Gif;
 import io.github.adamelliotfields.form.GifForm;
 import java.util.List;
 
