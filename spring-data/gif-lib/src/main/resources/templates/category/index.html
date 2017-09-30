@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="layout :: head('categories')"></head>
 <body>
   <div th:replace="layout :: nav"></div>
@@ -12,17 +11,21 @@
         <h2>Categories</h2>
       </div>
       <div class="col s3">
-        <a class="right add" href="/categories/add">+</a>
+        <a class="right add" th:href="@{/categories/form}">+</a>
       </div>
     </div>
     <div class="divider"></div>
     <div class="row">
-      <div th:each="cat : ${categories}" class="col s12 l4">
+      <!--/*@thymesVar id="categories" type="io.github.adamelliotfields.entity.Category"*/-->
+      <div th:each="cat : ${categories}" class="col s12 m6 l4">
         <div class="card" th:style="|background-color:${cat.colorCode}|">
           <div class="card-content">
             <div class="card-title">
               <a class="name" th:href="@{|/categories/${cat.id}|}" th:text="${cat.name}">Category Name</a>
-              <a class="edit" th:href="@{|/categories/${cat.id}/edit|}"><i class="hide-on-med-and-down material-icons">more_horiz</i><i class="hide-on-large-only medium material-icons">more_horiz</i></a>
+              <a class="edit" th:href="@{|/categories/${cat.id}/edit|}">
+                <i class="hide-on-med-and-down material-icons">more_horiz</i>
+                <i class="hide-on-large-only medium material-icons">more_horiz</i>
+              </a>
             </div>
           </div>
         </div>

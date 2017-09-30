@@ -8,38 +8,42 @@
   <div class="container upload">
     <div class="row">
       <div class="col s12">
-        <h2 th:text="${heading}">Upload</h2>
+        <h2 th:text="${heading}"></h2>
         <div class="subtitle">Upload and share your GIFs with friends and family on Facebook, Twitter, and everywhere else.</div>
       </div>
     </div>
     <div class="divider"></div>
     <!-- The enctype allows the form to send file data -->
-    <form th:action="@{${action}}" method="post" th:object="${gif}" enctype="multipart/form-data">
+    <!--/*@thymesVar id="gif" type="io.github.adamelliotfields.form.GifForm"*/-->
+    <form th:action="@{${action}}" th:method="${method}" th:object="${gif}" enctype="multipart/form-data">
       <div class="row">
         <div class="col s12 l8">
           <div class="file-wrapper">
-            <input th:field="*{file}" type="file" id="file" />
+            <!--/*@thymesVar id="categories" type="io.github.adamelliotfields.entity.Category"*/-->
+            <input th:field="*{file}" type="file" id="file" th:disabled="${#lists.isEmpty(categories)}" />
             <span class="placeholder" data-placeholder="Choose an image...">Choose an image...</span>
             <label for="file" class="button">Browse</label>
           </div>
         </div>
       </div>
       <div class="row">
-        <div class="col s12 l8">
-          <input type="text" th:field="*{description}" placeholder="Description"/>
+        <div class="col s12 l8" th:classappend="${#fields.hasErrors('description')} ? 'error' : ''">
+          <input type="text" th:field="*{description}" placeholder="Description" th:disabled="${#lists.isEmpty(categories)}" />
+          <div class="error-message" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></div>
         </div>
       </div>
       <div class="row">
-        <div class="col s12 l8">
+        <div class="col s12 l8" th:classappend="${#fields.hasErrors('category')} ? 'error' : ''">
           <select th:field="*{category.id}" class="cs-select cs-skin-border">
             <option value="" disabled="disabled">Select a category</option>
-            <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}" th:style="|color:${cat.colorCode}|">Technology</option>
+            <option th:each="cat : ${categories}" th:value="${cat.id}" th:text="${cat.name}" th:style="|color:${cat.colorCode}|" th:disabled="${#lists.isEmpty(categories)}"></option>
           </select>
+          <div class="error-message" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></div>
         </div>
       </div>
       <div class="row">
         <div class="col s12">
-          <button th:text="${submit}" type="submit" class="button">Upload</button>
+          <button th:text="${button}" type="submit" class="button" th:disabled="${#lists.isEmpty(categories)}"></button>
           <a href="javascript:window.location = document.referrer;" class="button">Cancel</a>
         </div>
       </div>

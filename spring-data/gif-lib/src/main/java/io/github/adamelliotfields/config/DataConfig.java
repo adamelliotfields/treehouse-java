@@ -3,8 +3,10 @@ package io.github.adamelliotfields.config;
 import com.mongodb.MongoClient;
 import java.util.Collection;
 import java.util.Collections;
+import lombok.val;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.config.AbstractMongoConfiguration;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -28,8 +30,9 @@ public class DataConfig extends AbstractMongoConfiguration {
   @Override
   @Bean
   public MongoClient mongo() {
-    final String host = "localhost";
-    final int port = 27017;
+    val host = "localhost";
+    val port = 27017;
+
     return new MongoClient(host, port);
   }
 
@@ -39,7 +42,10 @@ public class DataConfig extends AbstractMongoConfiguration {
     return new SimpleMongoDbFactory(mongo(), getDatabaseName());
   }
 
+  // Annotate with Primary as mongoTemplate could refer to beans in the MongoDataAutoConfiguration
+  // or AbstractMongoConfiguration classes
   @Override
+  @Primary
   @Bean
   public MongoTemplate mongoTemplate() throws Exception {
     return new MongoTemplate(mongoDbFactory(), mappingMongoConverter());

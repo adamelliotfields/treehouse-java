@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="layout :: head('explore')"></head>
 <body>
   <div th:replace="layout :: nav"></div>
@@ -8,11 +7,12 @@
   <div th:replace="layout :: flash"></div>
   <div class="gifs container">
     <div class="row">
-      <div th:each="gif : ${gifs}" class="col s12 l4">
+      <!--/*@thymesVar id="gifs" type="io.github.adamelliotfields.entity.Category"*/-->
+      <div th:each="gif : ${gifs}" class="col s12 m6 l4">
         <a th:href="@{|/gifs/${gif.id}|}" class="actions">
           <img th:src="@{|/gifs/${gif.id}.gif|}" alt="gif" />
-          <form th:action="@{|/gifs/${gif.id}/favorite|}" method="post">
-            <button type="submit" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></button>
+          <form th:action="@{|/gifs/${gif.id}|}" method="post">
+            <button type="submit" th:class="(${gif.favorite} ? 'unmark favorite' : 'mark favorite')"></button>
           </form>
         </a>
       </div>

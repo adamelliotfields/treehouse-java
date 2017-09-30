@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class WebConfig {
+public class AppConfig {
   // Support sending up to 10MB through forms
   @Bean
   MultipartConfigElement multipartConfig() {

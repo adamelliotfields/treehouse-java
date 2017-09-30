@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="layout :: head('categories')"></head>
 <body>
   <div th:replace="layout :: nav"></div>
   <div th:replace="layout :: searchbar"></div>
   <div th:replace="layout :: flash"></div>
   <div class="gifs container">
+
+    <!--/*@thymesVar id="category" type="io.github.adamelliotfields.entity.Category"*/-->
     <h2 th:text="${category.name}" th:style="|color:${category.colorCode}|"></h2>
     <div class="row">
-      <div th:each="gif : ${category.gifs}" class="col s12 l4">
+
+      <!--/*@thymesVar id="gifs" type="io.github.adamelliotfields.entity.Gif"*/-->
+      <div th:each="gif : ${gifs}" class="col s12 m6 l4">
         <a th:href="@{|/gifs/${gif.id}|}">
           <img th:src="@{|/gifs/${gif.id}.gif|}" />
-          <a href="#" th:class="(${gif.favorite}? 'un' : '') + 'mark favorite'"></a>
+          <a href="#" th:class="(${gif.favorite} ? 'unmark favoriate' : 'mark favorite')"></a>
         </a>
       </div>
     </div>

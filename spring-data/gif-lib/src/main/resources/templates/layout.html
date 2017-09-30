@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head th:fragment="head(page_title)" lang="en">
   <meta charset="UTF-8"/>
@@ -11,7 +10,7 @@
   <link rel="stylesheet" th:href="@{/vendor/codrops/css/cs-skin-border.css}" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" th:href="@{/css/app.css}" />
-  <title th:text="'giflib | ' + ${page_title}">giflib</title>
+  <title th:text="'giflib | ' + ${page_title}"></title>
 </head>
 
 <body>
@@ -20,18 +19,36 @@
     <nav>
       <div class="container">
         <a th:href="@{/}" class="brand-logo">gif<span>.</span>lib</a>
-        <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
+        <a href="#" data-activates="mobile-nav" class="button-collapse right">
+          <i class="material-icons">menu</i>
+        </a>
         <ul class="right hide-on-med-and-down">
-          <li th:classappend="${#httpServletRequest.servletPath.equals('/upload') ? 'active' : ''}"><a th:href="@{/upload}">Upload</a></li>
-          <li th:classappend="${#httpServletRequest.servletPath.equals('/gifs') ? 'active' : ''}"><a th:href="@{/}">Explore</a></li>
-          <li th:classappend="${#httpServletRequest.servletPath.equals('/categories') ? 'active' : ''}"><a th:href="@{/categories}">Categories</a></li>
-          <li th:classappend="${#httpServletRequest.servletPath.equals('/favorites') ? 'active' : ''}"><a th:href="@{/favorites}">Favorites</a></li>
+          <li th:classappend="${#httpServletRequest.servletPath.equals('/gifs/form') ? 'active' : ''}">
+            <a th:href="@{/gifs/form}">Upload</a>
+          </li>
+          <li th:classappend="${#httpServletRequest.servletPath.equals('/gifs') ? 'active' : ''}">
+            <a th:href="@{/gifs}">Explore</a>
+          </li>
+          <li th:classappend="${#httpServletRequest.servletPath.equals('/categories') ? 'active' : ''}">
+            <a th:href="@{/categories}">Categories</a>
+          </li>
+          <li th:classappend="${#httpServletRequest.servletPath.equals('/gifs/favorites') ? 'active' : ''}">
+            <a th:href="@{/gifs/favorites}">Favorites</a>
+          </li>
         </ul>
         <ul id="mobile-nav" class="side-nav">
-          <li th:classappend="${#httpServletRequest.servletPath.equals('/upload') ? 'active' : ''}"><a th:href="@{/upload}">Upload</a></li>
-          <li th:classappend="${#httpServletRequest.servletPath.equals('/gifs') ? 'active' : ''}"><a th:href="@{/}">Explore</a></li>
-          <li th:classappend="${#httpServletRequest.servletPath.equals('/categories') ? 'active' : ''}"><a th:href="@{/categories}">Categories</a></li>
-          <li th:classappend="${#httpServletRequest.servletPath.equals('/favorites') ? 'active' : ''}"><a th:href="@{/favorites}">Favorites</a></li>
+          <li th:classappend="${#httpServletRequest.servletPath.equals('/gifs/form') ? 'active' : ''}">
+            <a th:href="@{/gifs/form}">Upload</a>
+          </li>
+          <li th:classappend="${#httpServletRequest.servletPath.equals('/gifs') ? 'active' : ''}">
+            <a th:href="@{/gifs}">Explore</a>
+          </li>
+          <li th:classappend="${#httpServletRequest.servletPath.equals('/categories') ? 'active' : ''}">
+            <a th:href="@{/categories}">Categories</a>
+          </li>
+          <li th:classappend="${#httpServletRequest.servletPath.equals('/gifs/favorites') ? 'active' : ''}">
+            <a th:href="@{/gifs/favorites}">Favorites</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -50,6 +67,7 @@
     </div>
   </div>
 
+  <!--/*@thymesVar id="flash" type="io.github.adamelliotfields.web.FlashMessage"*/-->
   <div th:fragment="flash" th:if="${flash != null}" class="container">
     <i class="right material-icons" data-close="">close</i>
     <div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash"></div>

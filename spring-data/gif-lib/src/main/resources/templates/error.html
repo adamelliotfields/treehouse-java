@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="layout :: head('error')"></head>
 <body>
   <div th:replace="layout :: nav"></div>
   <div th:replace="layout :: searchbar"></div>
   <div class="container">
-    <h2 th:text="|${#httpServletRequest.getAttribute('javax.servlet.error.status_code')} Error|">500 Error</h2>
+    <h2 th:text="|${#httpServletRequest.getAttribute('javax.servlet.error.status_code')} Error|"></h2>
     <div th:if="${#httpServletRequest.getAttribute('javax.servlet.error.exception')} != null" class="app-error">
-      <code th:text="${#httpServletRequest.getAttribute('javax.servlet.error.exception')}">Error Message</code>
+      <code th:text="${#httpServletRequest.getAttribute('javax.servlet.error.exception')}"></code>
     </div>
   </div>
   <div th:replace="layout :: scripts"></div>

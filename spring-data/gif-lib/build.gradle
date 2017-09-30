@@ -32,10 +32,11 @@ repositories {
 }
 
 dependencies {
+  compileOnly 'org.projectlombok:lombok:1.16.18'
   compile "org.springframework.boot:spring-boot-starter-thymeleaf:${springBootVersion}"
   compile "org.springframework.boot:spring-boot-starter-data-mongodb:${springBootVersion}"
   compile "org.springframework.boot:spring-boot-starter-actuator:${springBootVersion}"
-  compile 'org.projectlombok:lombok:1.16.18'
+  compile 'org.apache.tika:tika-parsers:1.16'
 }
 
 mainClassName = 'io.github.adamelliotfields.App'

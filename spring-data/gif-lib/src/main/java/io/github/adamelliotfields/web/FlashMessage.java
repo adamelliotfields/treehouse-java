@@ -11,7 +11,7 @@ public class FlashMessage {
   @Getter
   private Status status;
 
-  public static enum Status {
+  public enum Status {
     SUCCESS, FAILURE
   }
 }

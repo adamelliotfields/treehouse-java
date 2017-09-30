@@ -31,6 +31,10 @@ nav ul li:hover {
   background-color: inherit;
 }
 
+label.button {
+  cursor: pointer;
+}
+
 #mobile-nav,
 #mobile-nav li.active,
 #mobile-nav li:hover {

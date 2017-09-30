@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head th:replace="layout :: head('new category')"></head>
 <body>
   <div th:replace="layout :: nav"></div>
   <div th:replace="layout :: flash"></div>
   <div class="container">
-    <form th:action="@{${action}}" method="post" th:object="${category}">
+    <!--/*@thymesVar id="category" type="io.github.adamelliotfields.form.CategoryForm"*/-->
+    <form th:action="@{${action}}" th:method="${method}" th:object="${category}">
       <div class="row">
         <div class="col s12">
-          <h2 th:text="${heading}">New Category</h2>
+          <h2 th:text="${heading}"></h2>
         </div>
       </div>
       <div class="divider"></div>
@@ -26,21 +26,24 @@
         <div class="col s12 l8" th:classappend="${#fields.hasErrors('colorCode')} ? 'error' : ''">
           <select th:field="*{colorCode}" class="cs-select cs-skin-border">
             <option value="" disabled="disabled">Category Color</option>
-            <option th:each="color : ${colors}" th:value="${color.hexCode}" th:text="${color.name}" th:style="|color:${color.hexCode}|">Aqua</option>
+
+            <!--/*@thymesVar id="colors" type="io.github.adamelliotfields.web.Color"*/-->
+            <option th:each="color : ${colors}" th:value="${color.hexCode}" th:text="${color.name}" th:style="|color:${color.hexCode}|"></option>
           </select>
           <div class="error-message" th:if="${#fields.hasErrors('colorCode')}" th:errors="*{colorCode}"></div>
         </div>
       </div>
       <div class="row">
         <div class="col s12 l8">
-          <button th:text="${submit}" type="submit" class="button">Add</button>
+          <button th:text="${button}" type="submit" class="button"></button>
           <a th:href="@{/categories}" class="button">Cancel</a>
         </div>
       </div>
     </form>
     <div class="row delete" th:id="${category.id != null}">
       <div class="col s12 l8">
-        <form th:action="@{|/categories/${category.id}/delete|}" method="post">
+        <!-- Use th:method as DELETE is not valid HTML -->
+        <form th:action="@{|/categories/${category.id}|}" th:method="delete">
           <button type="submit" class="button">Delete</button>
         </form>
       </div>
