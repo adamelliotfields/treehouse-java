@@ -42,7 +42,7 @@
   </div>
   <div class="gifs container">
     <div class="row">
-      <!--/*@thymesVar id="gifs" type="io.github.adamelliotfields.controller.GifController"*/-->
+      <!--/*@thymesVar id="gifs" type="com.adamelliotfields.controller.GifController"*/-->
       <div th:each="gif : ${gifs}" class="col s12 l4">
         <a th:href="@{'/gif/' + ${gif.name}}">
           <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}" />

@@ -5,12 +5,12 @@
 >
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>io.github.adamelliotfields</groupId>
+  <groupId>com.adamelliotfields</groupId>
   <artifactId>file-spy</artifactId>
   <version>1.0.0</version>
   <packaging>jar</packaging>
   <name>File Spy</name>
-  <url>https://github.com/adamelliotfields/treehouse-java/java-maven/file-spy</url>
+  <url>https://github.com/0xfieldsy/treehouse-java/java-maven/file-spy</url>
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -35,7 +35,7 @@
             <configuration>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>io.github.adamelliotfields.App</mainClass>
+                  <mainClass>com.adamelliotfields.App</mainClass>
                 </transformer>
               </transformers>
             </configuration>

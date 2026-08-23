@@ -8,7 +8,7 @@
   <div class="gif-detail container">
     <div class="frame row">
       <div class="col s12 actions">
-        <!--/*@thymesVar id="gif" type="io.github.adamelliotfields.entity.Gif"*/-->
+        <!--/*@thymesVar id="gif" type="com.adamelliotfields.entity.Gif"*/-->
         <img th:src="@{|/gifs/${gif.id}.gif|}" alt="gif" />
         <form th:action="@{|/gifs/${gif.id}|}" method="post">
           <button type="submit" th:class="(${gif.favorite} ? 'unmark favorite' : 'mark favorite')"></button>
@@ -32,7 +32,7 @@
         </div>
       </div>
       <div class="col s2 l1 pull-l11">
-        <img class="circle" src="https://api.adorable.io/avatars/adamelliotfields" alt="avatar" />
+        <img class="circle" src="https://api.adorable.io/avatars/0xfieldsy" alt="avatar" />
       </div>
     </div>
     <div class="row">

@@ -67,7 +67,7 @@
     </div>
   </div>
 
-  <!--/*@thymesVar id="flash" type="io.github.adamelliotfields.web.FlashMessage"*/-->
+  <!--/*@thymesVar id="flash" type="com.adamelliotfields.web.FlashMessage"*/-->
   <div th:fragment="flash" th:if="${flash != null}" class="container">
     <i class="right material-icons" data-close="">close</i>
     <div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash"></div>

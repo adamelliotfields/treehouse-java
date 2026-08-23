@@ -7,12 +7,12 @@
 >
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>io.github.adamelliotfields</groupId>
+  <groupId>com.adamelliotfields</groupId>
   <artifactId>pomodoro</artifactId>
   <packaging>jar</packaging>
   <version>1.0.0</version>
   <name>Pomodoro Timer</name>
-  <url>https://github.com/adamelliotfields/treehouse-java/tree/master/javafx-applications/pomodoro</url>
+  <url>https://github.com/0xfieldsy/treehouse-java/tree/master/javafx-applications/pomodoro</url>
 
   <dependencies>
     <dependency>
@@ -45,7 +45,7 @@
             <configuration>
               <transformers>
                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                  <mainClass>io.github.adamelliotfields.Main</mainClass>
+                  <mainClass>com.adamelliotfields.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>

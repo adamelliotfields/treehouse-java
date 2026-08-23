@@ -7,7 +7,7 @@
   <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" th:href="@{/app.css}" />
-  <!--/*@thymesVar id="gif" type="io.github.adamelliotfields.controller.GifController"*/-->
+  <!--/*@thymesVar id="gif" type="com.adamelliotfields.controller.GifController"*/-->
   <title th:text="'giflib | ' + ${gif.name}">giflib</title>
 </head>
 <body>
@@ -44,7 +44,7 @@
   <div class="gif-detail container">
     <div class="frame row">
       <div class="col s12">
-        <!--/*@thymesVar id="gif" type="io.github.adamelliotfields.model.GifController"*/-->
+        <!--/*@thymesVar id="gif" type="com.adamelliotfields.model.GifController"*/-->
         <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}" alt="gif" />
         <a href="#" th:class="(${gif.favorite} ? 'un' : '') + 'mark favorite'" />
       </div>
@@ -56,7 +56,7 @@
             <img class="circle" src="http://api.adorable.io/avatars/205/avatar" alt="avatar" />
           </div>
           <div class="col s9">
-            <!--/*@thymesVar id="gif" type="io.github.adamelliotfields.controller.GifController"*/-->
+            <!--/*@thymesVar id="gif" type="com.adamelliotfields.controller.GifController"*/-->
             <h4 th:text="${gif.username}" />
             <p th:text="'Uploaded on ' + ${gif.uploadDate}" />
           </div>
@@ -65,7 +65,7 @@
       <div class="col s12 l6">
         <div class="share">
           <a class="btn right" href="#">Copy</a>
-          <!--/*@thymesVar id="gif" type="io.github.adamelliotfields.model.GifController"*/-->
+          <!--/*@thymesVar id="gif" type="com.adamelliotfields.model.GifController"*/-->
           <span th:text="'http://gif.fy/' + ${gif.name}" />
         </div>
       </div>

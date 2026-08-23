@@ -16,7 +16,7 @@
     </div>
     <div class="divider"></div>
     <div class="row">
-      <!--/*@thymesVar id="categories" type="io.github.adamelliotfields.entity.Category"*/-->
+      <!--/*@thymesVar id="categories" type="com.adamelliotfields.entity.Category"*/-->
       <div th:each="cat : ${categories}" class="col s12 m6 l4">
         <div class="card" th:style="|background-color:${cat.colorCode}|">
           <div class="card-content">

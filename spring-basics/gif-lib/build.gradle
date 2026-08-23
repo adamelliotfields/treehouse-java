@@ -39,6 +39,6 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 // Application plugin properties
-group = 'io.github.adamelliotfields'
+group = 'com.adamelliotfields'
 version = '1.0.0'
-mainClassName = 'io.github.adamelliotfields.App'
+mainClassName = 'com.adamelliotfields.App'

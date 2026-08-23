@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>io.github.adamelliotfields</groupId>
+  <groupId>com.adamelliotfields</groupId>
   <artifactId>pomodoro</artifactId>
   <name>Pomodoro Timer</name>
   <version>1.0.0</version>
-  <url>https://github.com/adamelliotfields/treehouse-java/javafx-applications/pomodoro</url>
+  <url>https://github.com/0xfieldsy/treehouse-java/javafx-applications/pomodoro</url>
   <build>
     <plugins>
       <plugin>
@@ -20,7 +20,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>io.github.adamelliotfields.Main</mainClass>
+                  <mainClass>com.adamelliotfields.Main</mainClass>
                 </transformer>
               </transformers>
             </configuration>

@@ -34,10 +34,10 @@ dependencies {
   testCompile 'junit:junit:4.12'
 }
 
-group 'io.github.adamelliotfields'
+group 'com.adamelliotfields'
 version '1.0.0'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 // Define the main class for the application
-mainClassName = 'io.github.adamelliotfields.App'
+mainClassName = 'com.adamelliotfields.App'

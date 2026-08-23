@@ -13,7 +13,7 @@
           </div>
           <div class="card-content">
             <div th:replace="layout :: flash"></div>
-            <!--/*@thymesVar id="userDto" type="io.github.adamelliotfields.dto.UserDto"*/-->
+            <!--/*@thymesVar id="userDto" type="com.adamelliotfields.dto.UserDto"*/-->
             <form th:action="@{/login}" th:object="${userDto}" method="post" class="login">
               <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
               <div class="row">

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>io.github.adamelliotfields</groupId>
+  <groupId>com.adamelliotfields</groupId>
   <artifactId>file-spy</artifactId>
   <name>File Spy</name>
   <version>1.0.0</version>
-  <url>https://github.com/adamelliotfields/treehouse-java/java-maven/file-spy</url>
+  <url>https://github.com/0xfieldsy/treehouse-java/java-maven/file-spy</url>
   <build>
     <plugins>
       <plugin>
@@ -20,7 +20,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>io.github.adamelliotfields.App</mainClass>
+                  <mainClass>com.adamelliotfields.App</mainClass>
                 </transformer>
               </transformers>
             </configuration>

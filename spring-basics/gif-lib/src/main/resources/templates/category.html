@@ -7,7 +7,7 @@
   <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
   <link rel="stylesheet" th:href="@{/app.css}" />
-  <!--/*@thymesVar id="category" type="io.github.adamelliotfields.controller.CategoryController"*/-->
+  <!--/*@thymesVar id="category" type="com.adamelliotfields.controller.CategoryController"*/-->
   <title th:text="'giflib | ' + ${category.name}">giflib | Category</title>
 </head>
 <body>
@@ -42,10 +42,10 @@
     </div>
   </div>
   <div class="gifs container">
-    <!--/*@thymesVar id="category" type="io.github.adamelliotfields.controller.CategoryController"*/-->
+    <!--/*@thymesVar id="category" type="com.adamelliotfields.controller.CategoryController"*/-->
     <div class="chip" th:text="${category.name}" />
     <div class="row">
-      <!--/*@thymesVar id="gifs" type="io.github.adamelliotfields.controller.GifController"*/-->
+      <!--/*@thymesVar id="gifs" type="com.adamelliotfields.controller.GifController"*/-->
       <div class="col s12 l4" th:each="gif : ${gifs}">
         <a th:href="@{'/gif/' + ${gif.name}}">
           <img th:src="@{'/gifs/' + ${gif.name} + '.gif'}" />

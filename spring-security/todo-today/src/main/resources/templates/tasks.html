@@ -8,7 +8,7 @@
   <div th:replace="layout :: flash"></div>
   <div class="container">
     <ul>
-      <!--/*@thymesVar id="tasks" type="io.github.adamelliotfields.entity.Task"*/-->
+      <!--/*@thymesVar id="tasks" type="com.adamelliotfields.entity.Task"*/-->
       <li th:each="task : ${tasks}">
         <form method="post" th:action="@{'/tasks/' + ${task.id}}" class="inline todo-item">
           <input type="checkbox" th:id="${task.id}" th:checked="${task.complete}"/>
@@ -16,7 +16,7 @@
         </form>
       </li>
       <li>
-        <!--/*@thymesVar id="taskDto" type="io.github.adamelliotfields.dto.TaskDto"*/-->
+        <!--/*@thymesVar id="taskDto" type="com.adamelliotfields.dto.TaskDto"*/-->
         <form method="post" th:object="${taskDto}" th:action="@{/tasks}" class="inline new-item">
           <label>
             <input type="text" th:field="*{description}" placeholder="New task" autocomplete="off" />
